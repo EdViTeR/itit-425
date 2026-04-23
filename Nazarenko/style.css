@@ -1,85 +1,292 @@
-body {
-  font-family: Arial, sans-serif;
+* {
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-image: url('fon.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Затемнение фона для читаемости текста */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
 }
 
 header {
-  background-color: #333;
-  padding: 10px;
+  background: rgba(51, 51, 51, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 header a {
   color: white;
   text-decoration: none;
-  margin: 5px 10px;
-  padding: 8px 12px;
-  background-color: #555;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-weight: 600;
 }
 
-header a:hover {
-  background-color: #777;
+.logo {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-size: 1.1em;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
+.back-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.back-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateX(-3px);
 }
 
 .profile {
-  max-width: 800px;
-  margin: 40px auto;
-  background: white;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  border-radius: 10px;
+  max-width: 1000px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   text-align: center;
+  animation: fadeInUp 0.8s ease-out;
 }
 
-.profile img {
-  width: 150px;
-  height: 150px;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.glow-effect {
+  display: inline-block;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.glow-effect img {
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 20px;
+  border: 4px solid white;
+  box-shadow: 0 0 0 4px #667eea, 0 10px 30px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.glow-effect img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 6px #764ba2, 0 15px 40px rgba(0,0,0,0.3);
 }
 
 .profile h1 {
-  margin: 10px 0;
-  font-size: 28px;
+  margin: 20px 0 10px;
+  font-size: 36px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
 }
 
-.profile p {
-  color: #777;
-  line-height: 1.6;
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.about-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #f3e7e9 100%);
+  padding: 25px;
+  border-radius: 20px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.about-card p {
+  color: #333;
+  line-height: 1.8;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.quote {
+  font-size: 18px;
+  color: #764ba2;
+  text-align: center;
+  font-style: italic;
 }
 
 .hobbies {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .hobbies h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
+  font-size: 28px;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.hobbies ul {
-  list-style: none;
-  padding: 0;
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.hobbies ul li {
-  background-color: #f0f0f0;
-  margin: 5px auto;
-  padding: 10px;
-  max-width: 400px;
-  border-radius: 5px;
+.hobby-card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  transition: all 0.3s;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.hobby-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+}
+
+.hobby-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hobby-card h3 {
+  color: #667eea;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.hobby-card p {
+  color: #777;
+  font-size: 14px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 2px solid #e0e0e0;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 36px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 footer {
   text-align: center;
-  margin: 40px 0;
-  color: #aaa;
+  margin: 20px 0;
+  padding: 20px;
+  color: white;
   font-size: 14px;
+}
+
+.social-links {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.social-links a:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .profile {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile h1 {
+    font-size: 28px;
+  }
 }
