@@ -5,6 +5,34 @@ body {
   background: linear-gradient(145deg, #2c2c3d 0%, #181822 50%, #060609 100%);
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background-image: 
+    radial-gradient(2px 2px at 15% 30%, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 45% 70%, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 78% 20%, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 90% 85%, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 30% 55%, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 8% 92%, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 85% 50%, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 95% 10%, #eee, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 22% 88%, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 68% 75%, #ccc, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40% 95%, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 5% 40%, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 75% 60%, #fff, rgba(0,0,0,0));
+  background-size: 500px 500px; 
+  background-repeat: repeat;
+  
+}
+
 header {
   background-color: #1e1e26;
   padding: 12px 20px;
