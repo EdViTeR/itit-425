@@ -233,17 +233,6 @@ footer {
   position: relative;
 }
 
-footer::before {
-  content: '🩸🩸🩸';
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 14px;
-  letter-spacing: 5px;
-  opacity: 0.6;
-}
-
 /* АНИМАЦИЯ МЕРЦАНИЯ ДЛЯ ТЕКСТА */
 @keyframes flicker {
   0% {
