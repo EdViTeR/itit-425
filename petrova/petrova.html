@@ -67,23 +67,6 @@
   Сделано с кайфом 😎 | 2026
 </footer>
 
-
-// Сердечки при клике
-document.body.addEventListener('click', function(e) {
-  if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
-  
-  const heart = document.createElement('div');
-  heart.innerHTML = '❤️';
-  heart.style.position = 'fixed';
-  heart.style.left = e.clientX + 'px';
-  heart.style.top = e.clientY + 'px';
-  heart.style.fontSize = '22px';
-  heart.style.animation = 'floatUp 1s ease-out';
-  heart.style.pointerEvents = 'none';
-  heart.style.zIndex = '9999';
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 1000);
-});
 </script>
 
 </body>
